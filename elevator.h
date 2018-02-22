@@ -28,17 +28,20 @@ class elevator
 			tottime+=(wait_num+on_num);//自增统计总共用时 
 			wait_num--;
 			on_num++;
-			time++;//接客耗时 
+			time++;//接客耗时
+			printf("%d时,停靠在%d楼\n",time,floor); 
 			pp->OE = true;
 			pp->OW = false;
 			onelevator[on_num]=*pp;
 		}
 		void liftoff(passenger *pp)//送达乘客 
 		{
+			
 			tottime+=(wait_num+on_num);//自增统计总共用时 
 			on_num--;
 			arrive_num++;
 			time++;//卸客耗时
+			printf("%d时,停靠在%d楼\n",time,floor);
 			pp->OE =false;
 			pp->ARR =true;
 			pp->OW=false;
@@ -62,7 +65,7 @@ class elevator
 		}
 		void status()
 		{
-			printf("WaitNum:%d\tOnNum:%d\tArriveNum:%d\n",wait_num,on_num,arrive_num);
+			printf("WaitNum:%d\tOnNum:%d\tArriveNum:%d\tFloor%d\n",wait_num,on_num,arrive_num,floor);
 		}
 		 elevator()
 		 {

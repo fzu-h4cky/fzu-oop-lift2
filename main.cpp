@@ -28,7 +28,7 @@ elevator ele;
 elevator reset;
 void outprint()
 {
-	printf("f");
+
 }
 void solve2(int k);
 void solve3(int k)
@@ -39,7 +39,6 @@ void solve3(int k)
 	{
 		if(person[inorder[i]].OE)//当前乘客还在电梯上 
 		{
-			ele.status();
 			ele.tofloor(ele.onelevator[i].to);//移动到当前乘客目的地
 			ele.liftoff(&ele.onelevator[i]);//下客
 			//printf("%d",ele.arrive_num);
@@ -52,7 +51,7 @@ void solve3(int k)
 }
 void solve2(int k)
 {
-	printf("%d",k);
+	//printf("%d",k);
 	if(k>LINE)return ;
 	//printf("%d",ele.arrive_num);
 	if(ele.arrive_num==LINE)outprint();
@@ -69,6 +68,14 @@ void solve2(int k)
 		ele=backup1;  
 	}
 	
+}
+void printorder()
+{
+	for(int i=1;i<=LINE;i++)
+	{
+		printf("%d\t",inorder[i]);
+	}
+	printf("\n");
 }
 void solve1(int k)//回溯生成所有载客顺序 
 {
@@ -93,7 +100,7 @@ void solve1(int k)//回溯生成所有载客顺序
 }
 int main(int argc, char** argv) {
 	input();
-	elevator ele;
+	
 	memset(usedorder,0,sizeof(usedorder));
 	solve1(1);
 	return 0;
