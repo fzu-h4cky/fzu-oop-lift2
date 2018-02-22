@@ -5,7 +5,7 @@
 #define LINE 5
 #define INPUTNAME "input.txt"
 #define OUTPUTNAME "output.txt"
-const bool fromfile=false;
+const bool fromfile=true;
 passenger person[LINE];
 void input()
 {
@@ -100,7 +100,6 @@ void solve1(int k)//回溯生成所有载客顺序
 }
 int main(int argc, char** argv) {
 	input();
-	
 	memset(usedorder,0,sizeof(usedorder));
 	solve1(1);
 	return 0;
