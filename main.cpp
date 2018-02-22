@@ -31,16 +31,17 @@ void outprint()
 }
 void solve3(int k)
 {
-	elevator backup=ele; 
+	elevator backup1=ele; 
 	for(int i=1;i<=ele.on_num;i++)//遍历电梯内所有乘客 
 	{
 		if(person[inorder[i]].OE)//当前乘客还在电梯上 
 		{
 			ele.tofloor(ele.onelevator[i].to);//移动到当前乘客目的地
 			ele.liftoff(&ele.onelevator[i]);//下客
-			//
-			solve3(k);
-			solve2(k+1); 
+			if(ele.arrive_num==LIST)outprint();//全部乘客到达  
+			elevator backup2=ele;
+			solve2(k+1);//去接下一个客 
+			ele=backup2; 
 		}
 	}
 }
@@ -50,13 +51,15 @@ void solve2(int k)
 	if(ele.arrive_num==LINE)outprint();
 	if(person[inorder[k]].OW)
 	{
-		elevator backup=ele;//
+		elevator backup1=ele;//
 		ele.tofloor(person[inorder[k]].from);//前往接客
 		ele.liftup(& person[inorder[k]]);//上电梯
+		elevator backup2=ele;
 		//分2种情况 
 		solve2(k+1);//一是去下个地方接客
+		ele=backup2;
 		solve3(k);//二送送走电梯内一名乘客 
-		ele=backup; 
+		ele=backup1; 
 	}
 	
 }
