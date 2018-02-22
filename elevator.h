@@ -60,6 +60,10 @@ class elevator
 			while(tto>floor)up();
 			while(tto<floor)down();
 		}
+		void status()
+		{
+			printf("WaitNum:%d\tOnNum:%d\tArriveNum:%d\n",wait_num,on_num,arrive_num);
+		}
 		 elevator()
 		 {
 		 	on_num=0;time=0;floor=1;wait_num=LINE;arrive_num=0;tottime=0;

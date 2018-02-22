@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = elevator.o 未命名4.o
-LINKOBJ  = elevator.o 未命名4.o
+OBJ      = elevator.o main.o
+LINKOBJ  = elevator.o main.o
 LIBS     = -L"C:/Program Files/dev c++/MinGW64/lib32" -L"C:/Program Files/dev c++/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
 INCS     = -I"C:/Program Files/dev c++/MinGW64/include" -I"C:/Program Files/dev c++/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/dev c++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
 CXXINCS  = -I"C:/Program Files/dev c++/MinGW64/include" -I"C:/Program Files/dev c++/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/dev c++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Program Files/dev c++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
@@ -27,5 +27,5 @@ $(BIN): $(OBJ)
 elevator.o: elevator.cpp
 	$(CPP) -c elevator.cpp -o elevator.o $(CXXFLAGS)
 
-未命名4.o: 未命名4.cpp
-	$(CPP) -c 未命名4.cpp -o 未命名4.o $(CXXFLAGS)
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
